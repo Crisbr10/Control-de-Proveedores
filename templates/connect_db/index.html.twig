@@ -35,6 +35,11 @@
                             <img src="{{asset('img/editar.png')}}" alt="editar">
                         </a>
                     </td>
+                    <td>
+                        <form action="{{ path('eliminar_proveedor', {'id': proveedor.proveedor_id}) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proveedor?');">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
