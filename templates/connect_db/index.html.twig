@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConnectDBController!{% endblock %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Proveedor ID</th>
+                <th>Nombre</th>
+                <th>Correo electrónico</th>
+                <th>Teléfono</th>
+                <th>Tipo ID</th>
+                <th>Activo</th>
+                <th>Fecha de creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.id }}</td>
+                    <td>{{ proveedor.nombre }}</td>
+                    <td>{{ proveedor.correo_electronico }}</td>
+                    <td>{{ proveedor.telefono }}</td>
+                    <td>{{ proveedor.tipo_id }}</td>
+                    <td>{{ proveedor.activo ? 'Sí' : 'No' }}</td>
+                    <td>{{ proveedor.fecha_creacion}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
