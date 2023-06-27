@@ -9,6 +9,7 @@ table {
   
   /* Estilos para las celdas de encabezado */
   th {
+    width: auto;
     background-color: #f2f2f2;
     color: #333;
     font-weight: bold;
@@ -19,6 +20,7 @@ table {
   
   /* Estilos para las celdas de datos */
   td {
+    width: auto;
     padding: 8px;
     text-align: left;
     border: 1px solid #ccc;
@@ -27,8 +29,7 @@ table {
     color: white;
   }
   
-  /* Estilos para las filas alternas */
+  /* Estilos para las filas alternas
   tr:nth-child(even) {
     background-color: #f9f9f9;
-  }
-  
+  } */

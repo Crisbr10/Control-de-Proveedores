@@ -8,7 +8,7 @@
     <table>
         <thead>
             <tr>
-                <th>Proveedor ID</th>
+                <th class="hide-on-small">Proveedor ID</th>
                 <th>Nombre</th>
                 <th>Correo electrónico</th>
                 <th>Teléfono</th>
@@ -20,12 +20,12 @@
         <tbody>
             {% for proveedor in proveedores %}
                 <tr>
-                    <td>{{ proveedor.id }}</td>
+                    <td>{{ proveedor.proveedor_id }}</td>
                     <td>{{ proveedor.nombre }}</td>
                     <td>{{ proveedor.correo_electronico }}</td>
-                    <td>{{ proveedor.telefono }}</td>
+                    <td>{{ proveedor.telefono_contacto }}</td>
                     <td>{{ proveedor.tipo_id }}</td>
-                    <td>{{ proveedor.activo ? 'Sí' : 'No' }}</td>
+                    <td>{{ proveedor.activo ? '✅' : '❌' }}</td>
                     <td>{{ proveedor.fecha_creacion}}</td>
                 </tr>
             {% endfor %}
