@@ -1,0 +1,35 @@
+#insert_form,#update_form{
+    width: 17rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #303136;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 0.8rem;
+
+    #nombre,#telefono,#correo,#tipo_id{
+        background-color: #444654;
+        border: none;
+        height: 2rem;
+        border-radius: 0.4rem;
+        color: rgb(255, 255, 255);
+        padding-left: 0.5rem;
+        outline: none;
+        width: 100%;
+        
+    }
+
+    #btn_insert,#btn_update{
+        background-color: #444654;
+        border: none;
+        height: 2rem;
+        border-radius: 0.4rem;
+        color: rgb(255, 255, 255);
+    }
+    
+}
+

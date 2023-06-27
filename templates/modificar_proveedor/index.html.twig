@@ -3,9 +3,10 @@
 {% block title %}Modificar Proveedor{% endblock %}
 
 {% block body %}
+<main>
     <h1>Modificar Proveedor</h1>
 
-    <form action="{{ path('modificar_proveedor', {'id': proveedor.proveedor_id}) }}" method="post">
+    <form action="{{ path('modificar_proveedor', {'id': proveedor.proveedor_id}) }}" method="post" id="update_form">
         <div>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" value="{{ proveedor.nombre }}" required>
@@ -36,9 +37,11 @@
         </div>
 
         <div>
-            <button type="submit">Actualizar</button>
+            <button type="submit" id="btn_update">Actualizar</button>
         </div>
     </form>
+</main>
+    
 {% endblock %}
 
 

@@ -5,41 +5,45 @@
 {% block title %}Insertar Proveedor{% endblock %}
 
 {% block body %}
+<main>
     <h1>Insertar Proveedor</h1>
 
     <form action="{{ path('insertar_proveedor') }}" method="post" id="insert_form">
         <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" name="nombre" required>         
         </div>
 
         <div>
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
+            <label for="correo">Correo electrónico: </label>
+            <input type="email" id="correo" name="correo" required>      
         </div>
 
         <div>
-            <label for="telefono">Teléfono:</label>
+            <label for="telefono">Teléfono: </label>
             <input type="text" id="telefono" name="telefono" required>
+            
+            
+        </div>   
+
+        <label for="tipo_id">Tipo de proveedor:</label>
+        <select id="tipo_id" name="tipo_id" required>
+            <option value="1">Hotel</option>
+            <option value="2">Pista</option>
+            <option value="3">Complemento</option>
+        </select>
+
+        <div>
+            <label for="activo">Activo: 
+                <input type="checkbox" id="activo" name="1" value="1" checked>
+            </label>
         </div>
 
         <div>
-            <label for="tipo_id">Tipo de proveedor:</label>
-            <select id="tipo_id" name="tipo_id" required>
-                <option value="1">Hotel</option>
-                <option value="2">Pista</option>
-                <option value="3">Complemento</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="activo">Activo:</label>
-            <input type="checkbox" id="activo" name="activo" value="1" checked>
-        </div>
-
-        <div>
-            <button type="submit">Insertar</button>
+            <button type="submit" id="btn_insert">Insertar</button>
         </div>
     </form>
+</main>
 {% endblock %}
+   
 
