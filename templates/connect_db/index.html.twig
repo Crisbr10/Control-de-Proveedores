@@ -8,25 +8,33 @@
     <table>
         <thead>
             <tr>
-                <th class="hide-on-small">Proveedor ID</th>
+                
                 <th>Nombre</th>
                 <th>Correo electrónico</th>
                 <th>Teléfono</th>
                 <th>Tipo ID</th>
                 <th>Activo</th>
-                <th>Fecha de creación</th>
+                <th>Fecha y hora de creación</th>
+                <th>Ultima Actualización</th>
+                <th>Editar</th>
+
             </tr>
         </thead>
         <tbody>
             {% for proveedor in proveedores %}
                 <tr>
-                    <td>{{ proveedor.proveedor_id }}</td>
                     <td>{{ proveedor.nombre }}</td>
                     <td>{{ proveedor.correo_electronico }}</td>
                     <td>{{ proveedor.telefono_contacto }}</td>
-                    <td>{{ proveedor.tipo_id }}</td>
+                    <td>{{ proveedor.tipo_nombre }}</td>
                     <td>{{ proveedor.activo ? '✅' : '❌' }}</td>
                     <td>{{ proveedor.fecha_creacion}}</td>
+                    <td>{{ proveedor.fecha_actualizacion}}</td>
+                    <td>
+                        <a href="{{ path('modificar_proveedor', {'id': proveedor.proveedor_id}) }}">
+                            <img src="{{asset('img/editar.png')}}" alt="editar">
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modificar Proveedor{% endblock %}
+
+{% block body %}
+    <h1>Modificar Proveedor</h1>
+
+    <form action="{{ path('modificar_proveedor', {'id': proveedor.proveedor_id}) }}" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="{{ proveedor.nombre }}" required>
+        </div>
+
+        <div>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" value="{{ proveedor.correo_electronico }}" required>
+        </div>
+
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" value="{{ proveedor.telefono_contacto }}" required>
+        </div>
+
+        <div>
+            <label for="tipo_id">Tipo de proveedor:</label>
+            <select id="tipo_id" name="tipo_id" required>
+                <option value="1" {% if proveedor.tipo_id == 1 %}selected{% endif %}>Hotel</option>
+                <option value="2" {% if proveedor.tipo_id == 2 %}selected{% endif %}>Pista</option>
+                <option value="3" {% if proveedor.tipo_id == 3 %}selected{% endif %}>Complemento</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="activo">Activo:</label>
+            <input type="checkbox" id="activo" name="1" value="1" {% if proveedor.activo %}checked{% endif %}>
+        </div>
+
+        <div>
+            <button type="submit">Actualizar</button>
+        </div>
+    </form>
+{% endblock %}
+
+
+
+
+
+

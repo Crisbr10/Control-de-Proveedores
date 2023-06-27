@@ -28,6 +28,8 @@ table {
   tbody{
     color: white;
   }
+
+  
   
   /* Estilos para las filas alternas
   tr:nth-child(even) {
