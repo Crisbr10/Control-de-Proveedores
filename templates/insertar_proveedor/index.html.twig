@@ -1,20 +1,45 @@
+{# insertar_proveedor/index.html.twig #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InsertarProveedorController!{% endblock %}
+{% block title %}Insertar Proveedor{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Insertar Proveedor</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <form action="{{ path('insertar_proveedor') }}" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Matins/Documents/COSAS NUEVAS/symfony/Pruebas_Database/src/Controller/InsertarProveedorController.php'|file_link(0) }}">src/Controller/InsertarProveedorController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Matins/Documents/COSAS NUEVAS/symfony/Pruebas_Database/templates/insertar_proveedor/index.html.twig'|file_link(0) }}">templates/insertar_proveedor/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+        </div>
+
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+        </div>
+
+        <div>
+            <label for="tipo_id">Tipo de proveedor:</label>
+            <select id="tipo_id" name="tipo_id" required>
+                <option value="1">Hotel</option>
+                <option value="2">Pista</option>
+                <option value="3">Complemento</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="activo">Activo:</label>
+            <input type="checkbox" id="activo" name="activo" value="1" checked>
+        </div>
+
+        <div>
+            <button type="submit">Insertar</button>
+        </div>
+    </form>
 {% endblock %}
+

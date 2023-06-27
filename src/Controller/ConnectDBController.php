@@ -9,7 +9,7 @@ use Doctrine\DBAL\Connection;
 
 class ConnectDBController extends AbstractController
 {
-    #[Route('/connect/d/b', name: 'app_connect_d_b')]
+    #[Route('/connect/d/b', name: 'listado_de_proveedores')]
     public function index(Connection $connection): Response
     {
         $sql = 'SELECT * FROM Proveedores';
