@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Insertar Proveedor</h1>
 
-    <form action="{{ path('insertar_proveedor') }}" method="post">
+    <form action="{{ path('insertar_proveedor') }}" method="post" id="insert_form">
         <div>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
