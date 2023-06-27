@@ -5,43 +5,45 @@
 {% endblock %}
 
 {% block body %}
-    <table>
-        <thead>
-            <tr>
-                
-                <th>Nombre</th>
-                <th>Correo electrónico</th>
-                <th>Teléfono</th>
-                <th>Tipo ID</th>
-                <th>Activo</th>
-                <th>Fecha y hora de creación</th>
-                <th>Ultima Actualización</th>
-                <th>Editar</th>
-
-            </tr>
-        </thead>
-        <tbody>
+    <main>
+        <h1>Listado de Proveedores</h1>
+        <div class="card_container">
             {% for proveedor in proveedores %}
-                <tr>
-                    <td>{{ proveedor.nombre }}</td>
-                    <td>{{ proveedor.correo_electronico }}</td>
-                    <td>{{ proveedor.telefono_contacto }}</td>
-                    <td>{{ proveedor.tipo_nombre }}</td>
-                    <td>{{ proveedor.activo ? '✅' : '❌' }}</td>
-                    <td>{{ proveedor.fecha_creacion}}</td>
-                    <td>{{ proveedor.fecha_actualizacion}}</td>
-                    <td>
-                        <a href="{{ path('modificar_proveedor', {'id': proveedor.proveedor_id}) }}">
-                            <img src="{{asset('img/editar.png')}}" alt="editar">
-                        </a>
-                    </td>
-                    <td>
-                        <form action="{{ path('eliminar_proveedor', {'id': proveedor.proveedor_id}) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proveedor?');">
-                            <button type="submit">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
+            <div class="card">
+                <h2>{{ proveedor.nombre }}</h2>
+                
+                <i>{{ proveedor.correo_electronico }}</i>
+                <p>Teléfono: {{ proveedor.telefono_contacto }}</p>
+    
+                <section class="tipo_activo">
+                    <p>Tipo: {{ proveedor.tipo_nombre }}</p>
+                    <p>Activo: {{ proveedor.activo ? '✅' : '❌' }}</p>
+                </section>
+                
+                <section class="fechas">
+                    <div>
+                        <h4>Creado:</h4>
+                        <p>{{ proveedor.fecha_creacion}}</p>
+                    </div>
+                    <div class="actualizado">
+                        <h4>Actualizado:</h4>
+                        <p>{{ proveedor.fecha_actualizacion}}</p>
+                    </div>
+                </section>
+                
+                <section class="borrar_editar">
+                    <a href="{{ path('modificar_proveedor', {'id': proveedor.proveedor_id}) }}">
+                        <img src="{{asset('img/editar.png')}}" alt="editar">
+                    </a>
+                    <form action="{{ path('eliminar_proveedor', {'id': proveedor.proveedor_id}) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proveedor?');">
+                        <button type="submit" class="btn"><img src="{{asset('img/eliminar.png')}}" alt="eliminar"></button>
+                    </form>
+                </section>
+                
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
+        </div>
+        
+    </main>
+    
 {% endblock %}
