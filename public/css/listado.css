@@ -1,0 +1,34 @@
+body{
+background-color: rgb(20, 92, 73);
+}
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Estilos para las celdas de encabezado */
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  /* Estilos para las celdas de datos */
+  td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  tbody{
+    color: white;
+  }
+  
+  /* Estilos para las filas alternas */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
