@@ -55,5 +55,17 @@
     transform: scale(1.1);
   }
 
+  a.btn_add{
+    display: flex;
+    align-items: center;
+    background-color: #303136;
+    border: none;
+    border-radius: 0.5rem;
+    height: 2rem;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+  }
+
  
 

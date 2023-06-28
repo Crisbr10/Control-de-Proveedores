@@ -7,6 +7,7 @@
 {% block body %}
     <main>
         <h1>Listado de Proveedores</h1>
+        <a href="{{path('insertar_proveedor')}}" class="btn_add">Añadir Proveedor</a>
         <div class="card_container">
             {% for proveedor in proveedores %}
             <div class="card">
@@ -43,7 +44,7 @@
             </div>
             {% endfor %}
         </div>
-        <a href="{{path('insertar_proveedor')}}" class="btn_add">Añadir Proveedor</a>
+        
     </main>
     
 {% endblock %}
