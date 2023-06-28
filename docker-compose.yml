@@ -24,8 +24,10 @@ services:
             - ViajesParaTi
 
     db:
+        build: 
+            context: .
+            dockerfile: docker/DataBase/Dockerfile
         container_name: viajespt_db
-        image: mysql:8.0
         ports:
             - 3310:3306
         environment:
@@ -35,7 +37,7 @@ services:
             MYSQL_ROOT_PASSWORD: viajesptroot
         command: mysqld --sql_mode="STRICT_ALL_TABLES,NO_ENGINE_SUBSTITUTION"
         volumes:
-            - .:/var/www/viajespt/
+            - ./ProveedoresDataBase.sql:/docker-entrypoint-initdb.d/ProveedoresDataBase.sql
         networks:
             - ViajesParaTi
 networks:
