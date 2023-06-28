@@ -16,7 +16,7 @@ class InsertarProveedorController extends AbstractController{
             $correo = $request->request->get('correo');
             $telefono = $request->request->get('telefono');
             $tipoId = $request->request->get('tipo_id');
-            $activo = $request->request->get('activo')==='1'? 1 : 0;
+            $activo = $request->request->get('activo')=== '1'? 1 : 0;
 
             // Realizar la inserción en la base de datos
             $sql = 'INSERT INTO Proveedores (nombre, correo_electronico, telefono_contacto, tipo_id, activo)
