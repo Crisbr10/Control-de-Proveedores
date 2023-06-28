@@ -11,11 +11,12 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente en tu máquina:
 
 ## Puesta en funcionamiento del proyecto
 
-1. En la terminal, ejecuta el siguiente comando para construir y levantar los contenedores Docker:
+1. Después de haber clonado o descargado el repositorio sigue los siguientes pasos:
+
+3. En la terminal, ejecuta el siguiente comando para construir y levantar los contenedores Docker:
 - docker-compose up -d
 
-2. Una vez que los contenedores estén en funcionamiento, ejecuta el siguiente comando para instalar las dependencias de Symfony:
-- docker-compose exec app composer install
+3. Una vez que los contenedores estén en funcionamiento, ejecuta el siguiente comando para instalar las dependencias de Symfony:
+- composer install
 
-3. Una vez tengas instaladas las dependencias debes ejecutar es script sql que se encuenta en la raiz del proyecto en tu gestor de bases de datos de esta manera tendras proveedores de pueba para que realices los CRUDS a la base de datos
-- ProveedoresDataBase.sql
+4. Ya esta!! Abre tu navegador y escribe localhost entu barra de direcciones para que comiences a interactuar con la App
