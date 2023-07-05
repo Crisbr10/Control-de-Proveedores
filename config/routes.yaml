@@ -6,4 +6,4 @@ controllers:
 
 app_home:
     path: /
-    controller: App\Controller\ListadoController::index
+    controller: App\Controller\ListaProveedoresController::index
