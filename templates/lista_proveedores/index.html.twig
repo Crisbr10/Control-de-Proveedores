@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Listado de proveedores
+{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Listado de Proveedores</h1>
+        <a href="{{path('insertar_proveedor')}}" class="btn_add">Añadir Proveedor</a>
+        <div class="card_container">
+            {% for proveedor in proveedores %}
+            <div class="card">
+                <h2>{{ proveedor.nombre }}</h2>
+                
+                <i>{{ proveedor.correoElectronico }}</i>
+                <p>Teléfono: {{ proveedor.telefonoContacto }}</p>
+    
+                <section class="tipo_activo">
+                    <p>Tipo: {{ proveedor.tipo }}</p>
+                    <p>Activo: {{ proveedor.activo ? '✅' : '❌' }}</p>
+                </section>
+                
+                <section class="fechas">
+                    <div>
+                        <h4>Creado:</h4>
+                        <p>{{ proveedor.fechaCreacion}}</p>
+                    </div>
+                    <div class="actualizado">
+                        <h4>Actualizado:</h4>
+                        <p>{{ proveedor.fechaActualizacion}}</p>
+                    </div>
+                </section>
+                
+                <section class="borrar_editar">
+                    <a href="{{ path('modificar_proveedor', {'id': proveedor.proveedorId}) }}">
+                        <img src="{{asset('img/editar.png')}}" alt="editar">
+                    </a>
+                    <form action="{{ path('eliminar_proveedor', {'id': proveedor.proveedorId}) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proveedor?');">
+                        <button type="submit" class="btn"><img src="{{asset('img/eliminar.png')}}" alt="eliminar"></button>
+                    </form>
+                </section>
+                
+            </div>
+            {% endfor %}
+        </div>
+        
+    </main>
+    
+{% endblock %}
