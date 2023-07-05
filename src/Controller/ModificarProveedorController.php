@@ -3,19 +3,31 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\DBAL\Connection;
+use App\Entity\Proveedores;
+use App\Entity\Tiposproveedores;
 
-class ModificarProveedorController extends AbstractController
-{
-    #[Route('/modificar/proveedor/{id}', name: 'modificar_proveedor')]
-    public function index(Request $request, Connection $connection, int $id): Response
+class ModificarProveedorController extends AbstractController{
+
+    private $em;
+
+    /**
+     * Constructor de la clase.
+     * 
+     * @param EntityManagerInterface $em El administrador de entidades de Doctrine
+     */
+    public function __construct(EntityManagerInterface $em)
     {
-        // Obtener los datos del proveedor a modificar
-        $sql = 'SELECT * FROM Proveedores WHERE proveedor_id = ?';
-        $proveedor = $connection->fetchAssociative($sql, [$id]);
+        $this->em = $em;
+    }
+    
+    #[Route('/modificar/proveedor/{id}', name: 'modificar_proveedor')]
+    public function index(Request $request, $id): Response{
+       
+        $proveedor = $this->em->getRepository(Proveedores::class)->find($id);
 
         // Verificar si el proveedor existe
         if (!$proveedor) {
@@ -26,16 +38,21 @@ class ModificarProveedorController extends AbstractController
             $nombre = $request->request->get('nombre');
             $correo = $request->request->get('correo');
             $telefono = $request->request->get('telefono');
-            $tipoId = $request->request->get('tipo_id');
-            $activo = $request->request->get('activo')=== '1'? 1 : 0;
+            $tipo = $request->request->get('tipo_id');
+            $tipo = $this->em->getRepository(Tiposproveedores::class)->find($tipo);
+            $activo = $request->request->get('activo')=== 1? 1 : 0;
 
-            // Realizar la actualización en la base de datos
-            $sql = 'UPDATE Proveedores SET nombre = ?, correo_electronico = ?, telefono_contacto = ?, tipo_id = ?, activo = ? WHERE proveedor_id = ?';
-            $parameters = [$nombre, $correo, $telefono, $tipoId, $activo, $id];
-            $connection->executeQuery($sql, $parameters);
+            // Actualizar los datos del proveedor
+            $proveedor->setNombre($nombre);
+            $proveedor->setCorreoElectronico($correo);
+            $proveedor->setTelefonoContacto($telefono);
+            $proveedor->setTipo($tipo);
+            $proveedor->setActivo($activo);
+
+            $this->em->flush();
 
             // Redireccionar a la página de listado de proveedores
-            return $this->redirectToRoute('listado_de_proveedores');
+            return $this->redirectToRoute('app_lista_proveedores');
         }
 
         return $this->render('modificar_proveedor/index.html.twig', [

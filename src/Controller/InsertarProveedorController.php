@@ -25,7 +25,7 @@ class InsertarProveedorController extends AbstractController{
             $connection->executeQuery($sql, $parameters);
 
             // Redireccionar a la página de listado de proveedores
-            return $this->redirectToRoute('listado_de_proveedores');
+            return $this->redirectToRoute('app_lista_proveedores');
         }
 
         return $this->render('insertar_proveedor/index.html.twig');
